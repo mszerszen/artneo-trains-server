@@ -5,9 +5,9 @@ export class StationController {
   async getStations(req: Request, res: Response) {
     try {
       const stations = await stationService.getStations();
-      res.json(stations);
-    } catch (error) {
-      res.status(500).json({ message: "Error fetching stations" });
+      res.status(200).json(stations);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
     }
   }
 

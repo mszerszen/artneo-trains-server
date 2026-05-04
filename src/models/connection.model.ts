@@ -41,8 +41,7 @@ const ConnectionSchema = new Schema<IConnection>(
     end: { type: ConnectionEndSchema, required: true },
     price: { type: Number, required: true },
     departureTimes: { type: [String], required: true }
-  },
-  { timestamps: true }
+  }
 );
 
 export const Connection = mongoose.model<IConnection>("Connection", ConnectionSchema);

@@ -8,7 +8,7 @@ export class StationService {
 
   async createStation(data: { name: string; city: string; type: "main" | "secondary" }): Promise<IStation> {
     if (!data.name || !data.city || !data.type) {
-      throw new Error("Missing required fields: name, city, type");
+      throw new Error("Missing required fields");
     }
 
     return stationRepository.create(data);
