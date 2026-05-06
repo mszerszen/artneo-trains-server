@@ -5,6 +5,10 @@ export class StationRepository {
     return Station.find();
   }
 
+  async getById(id: string): Promise<IStation | null> {
+    return Station.findById(id)
+  }
+
   async create(data: Partial<IStation>): Promise<IStation> {
     const station = new Station(data);
     return station.save();

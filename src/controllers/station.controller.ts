@@ -11,6 +11,15 @@ export class StationController {
     }
   }
 
+  async getStation(req: Request, res: Response) {
+    try {
+      const station = await stationService.getStation(req.params.id as string);
+      res.status(200).json(station);
+    } catch (error: any) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
   async createStation(req: Request, res: Response) {
     try {
       const station = await stationService.createStation(req.body);

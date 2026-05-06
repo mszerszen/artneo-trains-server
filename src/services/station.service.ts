@@ -6,6 +6,10 @@ export class StationService {
     return stationRepository.getAll();
   }
 
+  async getStation(id: string): Promise<IStation | null> {
+    return stationRepository.getById(id);
+  }
+
   async createStation(data: { name: string, lat: string, lng: string }): Promise<IStation> {
     if (!data.name || !data.lat || !data.lng) {
       throw new Error("Missing required fields");

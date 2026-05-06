@@ -4,6 +4,7 @@ import { connectDB } from "./config/db";
 import { ENV } from "./config/env";
 import stationRoutes from "./routes/station.routes";
 import connectionRoutes from "./routes/connection.routes";
+import scheduleRoutes from "./routes/schedule.routes";
 
 const app = express();
 
@@ -19,6 +20,7 @@ connectDB();
 
 app.use("/connections", connectionRoutes);
 app.use("/stations", stationRoutes);
+app.use("/schedules", scheduleRoutes)
 
 app.listen(ENV.PORT, () => {
   console.log(`Backend running on http://localhost:${ENV.PORT}`);
